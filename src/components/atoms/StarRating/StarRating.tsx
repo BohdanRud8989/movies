@@ -11,11 +11,12 @@ const StarRating = ({ rating }: StarRatingProps) => {
         const starsList: { className: string }[] = [];
 
         for (let i = 1; i <= 5; i++) {
-            const isHalf = i > rating && i <= Math.ceil(rating);
-            // TODO display half star if rating is 2.5, 3.5, 4.5
-            const starClass = `${styles.starRatingItem} ${isHalf
-                ? styles.starRatingItemHalf: ''}
-                ${Math.floor(rating) === rating ? styles.starRatingItemFilled: ''}`;
+            const isHalf = rating < i && Math.ceil(rating) >= i;
+            const isFull = rating / i >= 1;
+            const starClass = `${styles.starRatingItem} ${
+                isHalf ? styles.starRatingItemHalf : ''
+            }
+                ${isFull ? styles.starRatingItemFilled : ''}`;
             starsList.push({ className: starClass });
         }
         return starsList;

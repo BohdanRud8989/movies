@@ -13,7 +13,7 @@ export const Routing = () => (
             }
         />
         <Route
-            path=":id"
+            path=":slug"
             element={
                 <PageHandler>
                     <Movie />

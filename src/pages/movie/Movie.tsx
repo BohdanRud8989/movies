@@ -8,11 +8,11 @@ import { StarRating } from '../../components';
 import styles from './movie.module.css';
 
 type MovieProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'>;
-type PagePathProps = { id: string };
+type PagePathProps = { slug: string };
 
 const Movie = memo((props: MovieProps) => {
-    const { id } = useParams<PagePathProps>();
-    const { data: movie, isLoading, isError } = useMovie(id);
+    const { slug } = useParams<PagePathProps>();
+    const { data: movie, isLoading, isError } = useMovie(slug);
 
     if (isLoading) {
         return (
@@ -21,7 +21,7 @@ const Movie = memo((props: MovieProps) => {
             </CenteredLayout>
         );
     }
-    if (isError) {
+    if (isError || movie === undefined) {
         return (
             <CenteredLayout>
         <span className={styles.movieNotification}>
@@ -35,29 +35,27 @@ const Movie = memo((props: MovieProps) => {
         <div className={styles.movie} {...props}>
             <img
                 className={styles.moviePoster}
-                src={`${ORIGIN}${movie?.poster}`}
-                alt={movie?.title}
+                src={`${ORIGIN}${movie.poster}`}
+                alt={movie.title}
             />
             <div className={styles.movieInfo}>
                 <div
                     className={`${styles.movieInfoRow} ${styles.movieInfoRowAdjusted}`}
                 >
                     <h2 className={styles.movieInfoRowTitle}>
-                        {movie?.title}({movie?.imdb_rating})
+                        {movie.title}({movie.imdb_rating})
                     </h2>
-                    {movie?.imdb_rating !== undefined && (
-                        <StarRating rating={movie?.imdb_rating / 2} />
-                    )}
+                    <StarRating rating={movie.imdb_rating / 2} />
                 </div>
 
                 <div className={styles.movieInfoRow}>
-                    <span>{convertToDateAndFormat(movie?.released_on)}</span> |
-                    <span>{movie?.length}</span> |<span>{movie?.director}</span>
+                    <span>{convertToDateAndFormat(movie.released_on)}</span> |
+                    <span>{movie.length}</span> |<span>{movie.director}</span>
                 </div>
                 <div className={styles.movieInfoRow}>
-                    <span>cast: {movie?.cast.join(', ')}</span>
+                    <span>cast: {movie.cast.join(', ')}</span>
                 </div>
-                <span>{movie?.overview}</span>
+                <span>{movie.overview}</span>
             </div>
         </div>
     );

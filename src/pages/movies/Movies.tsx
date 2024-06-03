@@ -43,6 +43,13 @@ const Movies = (props: MoviesProps) => {
             </CenteredLayout>
         );
     }
+    if ((genres === undefined || genres.length === 0)) {
+        return (
+            <CenteredLayout>
+                <span className={styles.genresNotification}>No movies found.</span>
+            </CenteredLayout>
+        );
+    }
     if (isError) {
         return (
             <CenteredLayout>
@@ -55,8 +62,7 @@ const Movies = (props: MoviesProps) => {
 
     return (
         <div className={styles.genres} {...props}>
-            {genres !== undefined &&
-            genres.map(([genre, movies]) => (
+            {genres.map(([genre, movies]) => (
                 <MoviesContainer key={genre} title={genre} movies={movies} />
             ))}
         </div>

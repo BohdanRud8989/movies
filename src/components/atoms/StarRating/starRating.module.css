@@ -6,13 +6,13 @@
 .starRatingItem {
   font-size: 24px;
   cursor: pointer;
-  color: #ffd700;
+  color: #e2be8a;
 }
 
 .starRatingItemFilled {
-  color: #ff9800;
+  color: #e37009;
 }
 
 .starRatingItemHalf {
-  color: #7d6b07;
+  color: #ff9800;
 }

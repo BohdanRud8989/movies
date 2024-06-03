@@ -13,19 +13,19 @@ type MoviesContainerProps = Omit<HTMLAttributes<HTMLDivElement>, 'children'> & {
 const MoviesContainer = ({ movies, title, ...props }: MoviesContainerProps) => {
     const navigate = useNavigate();
 
-    const handleMovieClick = (id: string) => {
-        navigate(`/${id}`);
+    const handleMovieClick = (slug: string) => {
+        navigate(`/${slug}`);
     };
 
     return (
         <div className={styles.moviesContainer} {...props}>
             <h2 className={styles.moviesContainerTitle}>{title}</h2>
             <div className={styles.moviesContainerList}>
-                {movies?.map(({ id, title, poster }) => (
+                {movies?.map(({ id, title, poster, slug }) => (
                     <div
                         className={styles.moviesContainerListItem}
                         key={id}
-                        onClick={() => handleMovieClick(id)}
+                        onClick={() => handleMovieClick(slug)}
                     >
                         <img
                             className={styles.moviesContainerListItemPoster}
