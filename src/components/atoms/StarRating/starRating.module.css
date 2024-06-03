@@ -1,0 +1,18 @@
+.starRating {
+  display: flex;
+  gap: 2px;
+}
+
+.starRatingItem {
+  font-size: 24px;
+  cursor: pointer;
+  color: #ffd700;
+}
+
+.starRatingItemFilled {
+  color: #ff9800;
+}
+
+.starRatingItemHalf {
+  color: #7d6b07;
+}

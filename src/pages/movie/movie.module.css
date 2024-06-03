@@ -1,0 +1,49 @@
+.movie {
+  margin-top: 24px;
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 24px;
+}
+
+@media (max-width: 767px) {
+  .movie {
+    grid-template-columns: 1fr;
+  }
+}
+
+.movieNotification {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 24;
+}
+
+.moviePoster {
+  width: 240px;
+  height: 360px;
+}
+
+.movieInfo {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 16px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.movieInfoRow {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 8px;
+}
+
+.movieInfoRowAdjusted {
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.movieInfoRowTitle {
+  margin: 16px 0 0;
+}

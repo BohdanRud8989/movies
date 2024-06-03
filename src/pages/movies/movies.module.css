@@ -1,0 +1,14 @@
+.genres {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 36px;
+  margin: 12px auto 0;
+  padding: 24px;
+}
+
+.genresNotification {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 24;
+}
+

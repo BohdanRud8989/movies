@@ -1,0 +1,45 @@
+.moviesContainer {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 8px;
+  max-width: 1240px;
+  overflow-x: auto;
+}
+
+@media (max-width: 1024px) {
+  .moviesContainer {
+    max-width: 960px;
+  }
+}
+@media (max-width: 820px) {
+  .moviesContainer {
+    max-width: 702px;
+  }
+}
+
+@media (max-width: 768px) {
+  .moviesContainer {
+    max-width: 650px;
+  }
+}
+
+.moviesContainerList {
+  display: flex;
+  gap: 16px;
+}
+
+.moviesContainerListItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 175px;
+  background-color: #8b9197;
+  color: #ffffff;
+}
+
+.moviesContainerListItemPoster {
+  overflow: auto;
+  width: -webkit-fill-available;
+  height: inherit;
+}
